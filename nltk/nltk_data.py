@@ -6,7 +6,7 @@ if __name__ == '__main__':
     rs = requests.get(url).content
     selector = etree.HTML(rs)
     packages = selector.xpath('//packages/package/@url')
-    for package in packages:
-        with open('nltk_data.txt', 'a+') as data:
+    with open('nltk_data.txt', 'a+') as data:
+        for package in packages:
             print(package)
             data.write(package + '\n')
